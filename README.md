@@ -1,2 +1,2 @@
-# hackerranck
-HackerRanck
+# HackerRank
+HackerRank
