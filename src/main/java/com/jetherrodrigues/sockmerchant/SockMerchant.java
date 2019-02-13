@@ -15,15 +15,17 @@ public class SockMerchant {
     	
     	int aux = ar[0];
     	int auxCont = 0;
+    	
 		for (int i = 0; i < n; i++) {
-			 
+			int index = 0;
 			for (int j = 0; j < ar.length; ) {
 				if(aux == ar[j]) {
 					auxCont++;
+					index = j;
 				}
 				j++;
 			}
-			System.out.println(auxCont);
+			//System.out.println(auxCont);
 			if(auxCont % 2 == 0) {
 				totalPairs += auxCont/2; 
 			}
@@ -31,8 +33,9 @@ public class SockMerchant {
 				totalPairs += (auxCont-1)/2;
 			}
 			aux = ar[auxCont];
-			//i+=(j-1);
+			i = index;
 			auxCont = 0;
+			System.out.println(totalPairs);
 		}
     	return totalPairs;
     }
@@ -42,9 +45,9 @@ public class SockMerchant {
     	/**
     	 * test one
     	 */
-    	int n = 9;
-    	int [] ar = {10,20,20,10,10,30,50,10,20}; 
-        System.out.println(sockMerchant(n, ar));
+//    	int n = 9;
+//    	int [] ar = {10,20,20,10,10,30,50,10,20}; 
+//        System.out.println(sockMerchant(n, ar));
 
         /**
     	 * test two
