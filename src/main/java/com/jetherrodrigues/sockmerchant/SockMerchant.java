@@ -16,41 +16,40 @@ public class SockMerchant {
     	int aux = ar[0];
     	int auxCont = 0;
     	
-		for (int i = 0; i < n; i++) {
-			int index = 0;
-			for (int j = 0; j < ar.length; ) {
+		for (int i = 0; i < n;) {
+			aux = ar[i];
+			if (i == (n-1)) break; 
+			for (int j = 0; j < ar.length; j++) {
 				if(aux == ar[j]) {
 					auxCont++;
-					index = j;
+					i++;
+					continue;
 				}
-				j++;
 			}
-			//System.out.println(auxCont);
-			if(auxCont % 2 == 0) {
-				totalPairs += auxCont/2; 
-			}
-			else {
-				totalPairs += (auxCont-1)/2;
-			}
-			aux = ar[auxCont];
-			i = index;
-			auxCont = 0;
-			System.out.println(totalPairs);
 		}
-    	return totalPairs;
+		--auxCont;
+		if(auxCont % 2 == 0) {
+			totalPairs += auxCont/2; 
+		}
+		else {
+			totalPairs += (auxCont-1)/2;
+		}
+		return totalPairs;
     }
 
     public static void main(String[] args) {
         
     	/**
-    	 * test one
+    	 * test one - 3 pairs
+    	 * {10,10,10,10,20,20,20,30,50}
     	 */
-//    	int n = 9;
-//    	int [] ar = {10,20,20,10,10,30,50,10,20}; 
-//        System.out.println(sockMerchant(n, ar));
+    	int n = 9;
+    	int [] ar = {10,20,20,10,10,30,50,10,20}; 
+        System.out.println(sockMerchant(n, ar));
 
         /**
-    	 * test two
+    	 * test two - 4 pairs
+    	 * {1,1,1,1,2,3,3,3,3,3}
     	 */
     	int n2 = 10;
     	int [] ar2 = {1,1,3,1,2,1,3,3,3,3}; 
