@@ -13,6 +13,8 @@ public class SockMerchant {
 		int totalPairs = 0;
     	Arrays.sort(ar);
     	
+    	if (n == 1) return totalPairs;
+    	
     	int aux = ar[0];
     	int auxCont = 0;
     	
@@ -54,6 +56,14 @@ public class SockMerchant {
     	int n2 = 10;
     	int [] ar2 = {1,1,3,1,2,1,3,3,3,3}; 
         System.out.println(sockMerchant(n2, ar2));
+        
+        /**
+    	 * test tree - 0 pairs
+    	 * {100}
+    	 */
+    	int n3 = 1;
+    	int [] ar3 = {100}; 
+        System.out.println(sockMerchant(n3, ar3));
     }
 }
 
