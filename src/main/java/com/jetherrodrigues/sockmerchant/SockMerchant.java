@@ -1,6 +1,7 @@
 package com.jetherrodrigues.sockmerchant;
 
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 
@@ -10,33 +11,17 @@ import java.util.Arrays;
 public class SockMerchant {
 
     static int sockMerchant(int n, int[] ar) {
-		int totalPairs = 0;
-    	Arrays.sort(ar);
-    	
-    	if (n == 1) return totalPairs;
-    	
-    	int aux = ar[0];
-    	int auxCont = 0;
-    	
-		for (int i = 0; i < n;) {
-			aux = ar[i];
-			if (i == (n-1)) break; 
-			for (int j = 0; j < ar.length; j++) {
-				if(aux == ar[j]) {
-					auxCont++;
-					i++;
-					continue;
-				}
-			}
-		}
-		--auxCont;
-		if(auxCont % 2 == 0) {
-			totalPairs += auxCont/2; 
-		}
-		else {
-			totalPairs += (auxCont-1)/2;
-		}
-		return totalPairs;
+    	int totalPairs = 0;
+        Set<Integer> values = new HashSet<>();
+
+        for (int i = 0; i < n; i++) {
+            if (!values.add(ar[i])) {
+                totalPairs++;
+                values.remove(ar[i]);
+            }
+        }
+
+        return totalPairs;
     }
 
     public static void main(String[] args) {
@@ -64,6 +49,13 @@ public class SockMerchant {
     	int n3 = 1;
     	int [] ar3 = {100}; 
         System.out.println(sockMerchant(n3, ar3));
+        
+        int n4 = 100;
+        int [] ar4 = new int[100];
+        for (int i = 0; i < ar4.length; i++) {
+			ar4[i] = 42;
+		}
+        System.out.println(sockMerchant(n4, ar4));
     }
 }
 
